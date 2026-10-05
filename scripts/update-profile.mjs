@@ -1,4 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
+import { pixelText } from './pixel-font.mjs';
 
 const username = 'YspCoder';
 const assetsDirectory = new URL('../assets/', import.meta.url);
@@ -7,6 +8,8 @@ const headers = {
   'X-GitHub-Api-Version': '2022-11-28',
   'User-Agent': `${username}-profile`,
 };
+const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+if (token) headers.Authorization = `Bearer ${token}`;
 
 async function getJson(path) {
   const response = await fetch(`https://api.github.com${path}`, {
@@ -51,9 +54,9 @@ const updatedAt = new Intl.DateTimeFormat('sv-SE', {
   day: '2-digit',
 }).format(new Date());
 const metrics = [
-  { value: profile.public_repos, label: '公开仓库', accent: 'mint' },
-  { value: stars, label: '非 Fork 仓库获星', accent: 'amber' },
-  { value: joinedYear, label: '加入 GitHub', accent: 'mint' },
+  { value: profile.public_repos, label: '公开仓库', code: 'REPOS', accent: 'mint' },
+  { value: stars, label: '非 Fork 仓库获星', code: 'STARS', accent: 'gold' },
+  { value: joinedYear, label: '加入 GitHub', code: 'SINCE', accent: 'coral' },
 ];
 
 function escapeXml(value) {
@@ -64,30 +67,47 @@ function escapeXml(value) {
 
 function createSvg(theme, mobile) {
   const palette = theme === 'dark'
-    ? { background: '#141918', border: '#303b37', primary: '#f1f5f3', muted: '#afbcb6', mint: '#6ce4b2', amber: '#eabb66' }
-    : { background: '#f6f9f7', border: '#dce5df', primary: '#18231e', muted: '#55675d', mint: '#147549', amber: '#92631b' };
+    ? { background: '#172422', border: '#3b5150', primary: '#edf7f4', muted: '#acbfba' }
+    : { background: '#f3f7f4', border: '#abc1b8', primary: '#203a35', muted: '#536d63' };
+  Object.assign(palette, { mint: '#85dfbd', gold: '#edd487', coral: '#f28a79' });
   const width = mobile ? 600 : 920;
-  const height = mobile ? 420 : 200;
+  const height = mobile ? 420 : 236;
   const metricMarkup = metrics.map((metric, index) => {
     const x = mobile ? 34 : 40 + index * 294;
-    const y = mobile ? 83 + index * 118 : 99;
-    const labelX = mobile ? 224 : x;
-    const labelY = mobile ? y - 15 : y + 37;
+    const y = mobile ? 93 + index * 106 : 87;
+    const labelX = mobile ? 226 : x;
+    const labelY = mobile ? y + 33 : y + 81;
+    const codeX = mobile ? labelX : x;
+    const codeY = mobile ? y - 10 : y - 21;
     const divider = mobile
-      ? (index < 2 ? `<path d="M34 ${y + 37}H566" stroke="${palette.border}"/>` : '')
-      : (index < 2 ? `<path d="M${x + 260} 40V142" stroke="${palette.border}"/>` : '');
+      ? (index < 2 ? `<path d="M34 ${y + 77}H566" stroke="${palette.border}" stroke-width="2"/>` : '')
+      : (index < 2 ? `<path d="M${x + 266} 66V177" stroke="${palette.border}" stroke-width="2"/>` : '');
+    const numberScale = Math.min(mobile ? 6 : 8, Math.floor((mobile ? 170 : 236) / (String(metric.value).length * 6 - 1)));
+    const numberColor = theme === 'dark' ? palette[metric.accent] : palette.primary;
     return `${divider}
-  <text x="${x}" y="${y}" fill="${palette[metric.accent]}" font-size="${mobile ? 57 : 62}" font-weight="700">${escapeXml(metric.value)}</text>
-  <text x="${labelX}" y="${labelY}" fill="${palette.primary}" font-size="${mobile ? 25 : 19}" font-weight="500">${escapeXml(metric.label)}</text>`;
+  <rect x="${codeX}" y="${codeY}" width="8" height="8" fill="${palette[metric.accent]}"/>
+  ${pixelText(metric.code, codeX + 16, codeY, 2, palette.muted)}
+  ${pixelText(String(metric.value), x, y, numberScale, numberColor)}
+  <text x="${labelX}" y="${labelY}" fill="${palette.primary}" font-size="${mobile ? 24 : 19}" font-weight="500">${escapeXml(metric.label)}</text>`;
   }).join('\n');
   const timestamp = `更新于 ${updatedAt} · 上海时间`;
+  const footerY = height - 25;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title description">
   <title id="title">${escapeXml(username)} 的 GitHub 公开统计</title>
   <desc id="description">${escapeXml(metrics.map(({ value, label }) => `${label} ${value}`).join('；'))}。${escapeXml(timestamp)}</desc>
-  <rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="8" fill="${palette.background}" stroke="${palette.border}"/>
+  <rect width="${width}" height="${height}" fill="${palette.background}"/>
+  <g shape-rendering="crispEdges">
+    <path d="M0 2H${width}M0 ${height - 2}H${width}" stroke="${palette.border}" stroke-width="4"/>
+    <path d="M0 0V12H12M${width} 0V12H${width - 12}M0 ${height}V${height - 12}H12M${width} ${height}V${height - 12}H${width - 12}" fill="none" stroke="${palette.primary}" stroke-width="4"/>
+    <rect x="40" y="0" width="48" height="4" fill="${palette.mint}"/>
+    <rect x="92" y="0" width="24" height="4" fill="${palette.gold}"/>
+    <rect x="120" y="0" width="16" height="4" fill="${palette.coral}"/>
+    ${pixelText('SAVE DATA', mobile ? 34 : 40, 25, 2, palette.primary)}
+    <path d="M${mobile ? 34 : 40} 52H${width - (mobile ? 34 : 40)}" stroke="${palette.border}" stroke-width="2"/>
+  </g>
   <g font-family="Segoe UI, PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" style="letter-spacing:0">
 ${metricMarkup}
-  <text x="${mobile ? 34 : 40}" y="${mobile ? 392 : 176}" fill="${palette.muted}" font-size="${mobile ? 17 : 13}">${escapeXml(timestamp)}</text>
+  <text x="${mobile ? 34 : 40}" y="${footerY}" fill="${palette.muted}" font-size="${mobile ? 17 : 13}">${escapeXml(timestamp)}</text>
   </g>
 </svg>
 `;

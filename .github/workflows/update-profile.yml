@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: '22'
       - name: Generate statistics from public GitHub data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/update-profile.mjs
       - name: Commit updated statistics
         shell: bash
