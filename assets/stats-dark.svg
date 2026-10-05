@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="200" viewBox="0 0 920 200" role="img" aria-labelledby="title description">
+  <title id="title">YspCoder 的 GitHub 公开统计</title>
+  <desc id="description">公开仓库 37；非 Fork 仓库获星 34；加入 GitHub 2016。更新于 2026-10-05 · 上海时间</desc>
+  <rect x="0.5" y="0.5" width="919" height="199" rx="8" fill="#141918" stroke="#303b37"/>
+  <g font-family="Segoe UI, PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" style="letter-spacing:0">
+<path d="M300 40V142" stroke="#303b37"/>
+  <text x="40" y="99" fill="#6ce4b2" font-size="62" font-weight="700">37</text>
+  <text x="40" y="136" fill="#f1f5f3" font-size="19" font-weight="500">公开仓库</text>
+<path d="M594 40V142" stroke="#303b37"/>
+  <text x="334" y="99" fill="#eabb66" font-size="62" font-weight="700">34</text>
+  <text x="334" y="136" fill="#f1f5f3" font-size="19" font-weight="500">非 Fork 仓库获星</text>
+
+  <text x="628" y="99" fill="#6ce4b2" font-size="62" font-weight="700">2016</text>
+  <text x="628" y="136" fill="#f1f5f3" font-size="19" font-weight="500">加入 GitHub</text>
+  <text x="40" y="176" fill="#afbcb6" font-size="13">更新于 2026-10-05 · 上海时间</text>
+  </g>
+</svg>

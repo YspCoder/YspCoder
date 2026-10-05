@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YspCoder</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1200px; height: 360px; overflow: hidden; }
+    body { font-family: "Segoe UI", "Microsoft YaHei", sans-serif; letter-spacing: 0; }
+    .cover { position: relative; width: 100%; height: 100%; padding: 35px 54px; background: #f2f6f3; color: #15241f; }
+    .cover::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: #e5c451; }
+    .eyebrow { margin: 0; color: #426457; font: 600 18px "Consolas", monospace; }
+    h1 { margin: 21px 0 4px; font-size: 108px; line-height: 1.06; font-weight: 750; }
+    .name { margin: 0; font-size: 32px; font-weight: 500; color: #46765f; }
+    .footer { position: absolute; bottom: 29px; left: 54px; display: flex; gap: 28px; align-items: center; font-size: 18px; font-weight: 600; }
+    .footer span:first-child { color: #0a805f; }
+    .footer span:nth-child(2) { color: #8b6b07; }
+    .footer span:nth-child(3) { color: #4c667c; }
+    .mascot { position: absolute; width: 320px; height: 320px; object-fit: contain; right: 29px; bottom: 0; }
+    .corner { position: absolute; right: 29px; top: 24px; font: 14px "Consolas", monospace; color: #587266; }
+    body.dark .cover { background: #151e1b; color: #f2f6f3; }
+    body.dark .eyebrow { color: #93b3a5; }
+    body.dark .name { color: #a5c3b5; }
+    body.dark .footer span:first-child { color: #75ddb1; }
+    body.dark .footer span:nth-child(2) { color: #e5c451; }
+    body.dark .footer span:nth-child(3) { color: #acc5df; }
+    body.dark .corner { color: #91aea0; }
+    @media (max-width: 640px) {
+      html, body { width: 480px; height: 380px; }
+      .cover { padding: 29px 27px; }
+      .eyebrow { font-size: 16px; }
+      h1 { font-size: 70px; margin-top: 28px; }
+      .name { font-size: 28px; margin-top: 8px; }
+      .mascot { width: 204px; height: 204px; right: 8px; bottom: 0; }
+      .footer { bottom: 34px; left: 27px; display: block; font-size: 19px; }
+      .footer span { display: block; margin-top: 12px; }
+      .corner { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <p class="eyebrow">BEIJING / BUILDING SINCE 2016</p>
+    <h1>YspCoder<span style="color:#43b386">.</span></h1>
+    <p class="name">野生派 Coder</p>
+    <div class="footer"><span>Go</span><span>AI Integration</span><span>Cross-platform</span></div>
+    <img class="mascot" src="../assets/avatar.png" alt="">
+    <span class="corner">@YspCoder</span>
+  </div>
+</body>
+</html>

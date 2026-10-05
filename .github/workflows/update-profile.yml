@@ -1,0 +1,37 @@
+name: Update public profile statistics
+
+on:
+  schedule:
+    - cron: '17 1 * * 1'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: update-profile-statistics
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Generate statistics from public GitHub data
+        run: node scripts/update-profile.mjs
+      - name: Commit updated statistics
+        shell: bash
+        run: |
+          git add assets/stats-dark.svg assets/stats-light.svg assets/stats-mobile-dark.svg assets/stats-mobile-light.svg
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: refresh public profile statistics'
+          git push
