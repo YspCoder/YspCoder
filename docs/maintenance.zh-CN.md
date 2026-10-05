@@ -6,19 +6,23 @@
 
 个人介绍、技术方向、项目链接和项目说明都在 `README.md` 中。GitHub Profile 支持 Markdown 与部分 HTML，但不运行网页脚本，也不支持自定义页面 CSS。
 
-封面是原创像素湖景与编程小屋。`scripts/render-pixel-art.mjs` 是插画、技术徽章与页尾的源稿；`scripts/pixel-font.mjs` 提供不依赖字体文件的 5 × 7 像素字形。桌面 PNG 为 1200 × 460，移动端为 720 × 568。明暗版本分别表现白天与夜晚。
+当前主页采用像素游戏存档界面：玩家档案、四个可点击任务槽位、装备栏和存档数据。玩家档案沿用 GitHub 头像，以 64 × 64 像素处理后合成。桌面封面为 920 × 328，移动端为 600 × 482，分别适配明暗主题。
+
+`scripts/render-player-profile.mjs` 生成玩家档案与任务槽位；`scripts/pixel-font.mjs` 提供不依赖字体文件的 5 × 7 像素字形。任务图标源文件为 `assets/project-*.svg`，说明文案保留在 README 中，图片内只呈现项目名、技术方向和项目状态。
 
 直接打开 `design/banner.html` 可以预览插画，它跟随系统主题与窗口宽度切换版本。
 
 ```sh
-# 生成 SVG 源文件，无第三方依赖
-node scripts/render-pixel-art.mjs
+# 生成玩家档案与任务 SVG，无第三方依赖
+node scripts/render-player-profile.mjs
 
 # 同时导出 README 使用的 PNG；传入本机 sharp 模块入口的 file URL
-node scripts/render-pixel-art.mjs file:///absolute/path/to/sharp/dist/index.cjs
+node scripts/render-player-profile.mjs file:///absolute/path/to/sharp/dist/index.cjs
 ```
 
 PNG 导出使用 `sharp` 0.35.x；其模块入口以安装版本的 `package.json` 为准。修改横幅文字或插画后需要重新导出四张 PNG。
+
+上一版湖景像素工作室的源稿仍保留在 `scripts/render-pixel-art.mjs` 与 `assets/banner-*` 中；技术徽章和页尾也由该脚本生成。需要调整这部分时可单独运行该脚本。
 
 README 的 `<picture>` 会根据访问者的主题与屏幕宽度选择封面、统计图片。文字介绍和项目列表使用 GitHub 原生排版。
 
@@ -37,13 +41,17 @@ node scripts/update-profile.mjs
 ## 文件
 
 - `README.md`：主页内容。
-- `assets/avatar.png`：原有 GitHub 头像快照。
+- `assets/avatar.png`：GitHub 头像快照。
+- `assets/player-*.svg` / `assets/player-*.png`：明暗主题与移动端玩家档案。
+- `assets/quest-*.svg`：明暗主题与移动端项目任务槽位。
+- `assets/project-*.svg`：像素项目图标源稿。
 - `assets/banner-*.svg` / `assets/banner-*.png`：明暗主题与移动端像素封面。
 - `assets/badge-*.svg` / `assets/label-*.svg`：像素技术徽章与章节标签。
 - `assets/pixel-footer*.svg`：桌面与移动端像素页尾。
 - `assets/stats-*.svg`：定期生成的公开数据。
 - `design/banner.html`：封面预览。
 - `scripts/render-pixel-art.mjs`：像素插画与徽章的生成源稿。
+- `scripts/render-player-profile.mjs`：玩家档案与任务槽位的生成源稿。
 - `scripts/pixel-font.mjs`：自绘像素字体。
 - `scripts/update-profile.mjs`：统计更新脚本。
 - `.github/workflows/update-profile.yml`：每周更新工作流。
