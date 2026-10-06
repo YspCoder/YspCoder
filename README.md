@@ -1,34 +1,32 @@
 <picture>
-  <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/player-dark-mobile.png">
-  <source media="(max-width: 640px)" srcset="assets/player-light-mobile.png">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/player-dark.png">
-  <img src="assets/player-light.png" width="1200" alt="YspCoder 玩家档案：野生派 Coder，北京，2016 年加入 GitHub；Go、AI 集成与跨平台开发。">
+  <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/modern-banner-dark-mobile.png">
+  <source media="(max-width: 640px)" srcset="assets/modern-banner-light-mobile.png">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/modern-banner-dark.png">
+  <img src="assets/modern-banner-light.png" width="1200" alt="YspCoder · 野生派 Coder · 北京 · Go、AI 集成与跨平台开发。">
 </picture>
 
 <p align="center">
   <br>
   <strong>写代码，接通想法。</strong><br>
-  用 Go 构建服务与 SDK，探索 AI、跨平台交互和像素游戏。
+  在北京，用 Go 构建服务与 SDK，探索 AI 集成、自动化与跨平台交互。
 </p>
 
 <p align="center">
-  <a href="#任务选择">任务选择</a> ·
-  <a href="#装备栏">装备栏</a> ·
-  <a href="#存档数据">存档数据</a> ·
+  <a href="#精选项目">精选项目</a> ·
+  <a href="#技术方向">技术方向</a> ·
+  <a href="#开源足迹">开源足迹</a> ·
   <a href="https://github.com/YspCoder?tab=repositories">全部仓库</a>
 </p>
 
-## 任务选择
-
-<img src="assets/label-quests.svg" width="230" alt="PROJECT QUESTS">
+## 精选项目
 
 <p>
 <a href="https://github.com/YspCoder/social-hub">
   <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/quest-social-hub-dark-mobile.svg">
-    <source media="(max-width: 640px)" srcset="assets/quest-social-hub-light-mobile.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/quest-social-hub-dark.svg">
-    <img src="assets/quest-social-hub-light.svg" width="1200" alt="任务 01 / social-hub / Social API、MCP / Alpha">
+    <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/modern-project-social-hub-dark-mobile.svg">
+    <source media="(max-width: 640px)" srcset="assets/modern-project-social-hub-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/modern-project-social-hub-dark.svg">
+    <img src="assets/modern-project-social-hub-light.svg" width="1200" alt="social-hub / Go、Social API、MCP / Alpha">
   </picture>
 </a>
 
@@ -39,10 +37,10 @@
 <p>
 <a href="https://github.com/YspCoder/omnigo">
   <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/quest-omnigo-dark-mobile.svg">
-    <source media="(max-width: 640px)" srcset="assets/quest-omnigo-light-mobile.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/quest-omnigo-dark.svg">
-    <img src="assets/quest-omnigo-light.svg" width="1200" alt="任务 02 / omnigo / LLM、多模态 / 持续迭代">
+    <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/modern-project-omnigo-dark-mobile.svg">
+    <source media="(max-width: 640px)" srcset="assets/modern-project-omnigo-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/modern-project-omnigo-dark.svg">
+    <img src="assets/modern-project-omnigo-light.svg" width="1200" alt="omnigo / Go、LLM、多模态 / 持续迭代">
   </picture>
 </a>
 
@@ -53,10 +51,10 @@
 <p>
 <a href="https://github.com/YspCoder/react-native-txc-player">
   <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/quest-react-native-txc-player-dark-mobile.svg">
-    <source media="(max-width: 640px)" srcset="assets/quest-react-native-txc-player-light-mobile.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/quest-react-native-txc-player-dark.svg">
-    <img src="assets/quest-react-native-txc-player-light.svg" width="1200" alt="任务 03 / react-native-txc-player / React Native Fabric、iOS、Android">
+    <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/modern-project-react-native-txc-player-dark-mobile.svg">
+    <source media="(max-width: 640px)" srcset="assets/modern-project-react-native-txc-player-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/modern-project-react-native-txc-player-dark.svg">
+    <img src="assets/modern-project-react-native-txc-player-light.svg" width="1200" alt="react-native-txc-player / React Native Fabric、iOS、Android">
   </picture>
 </a>
 
@@ -67,10 +65,10 @@
 <p>
 <a href="https://github.com/YspCoder/PixelAdventure2D-UE5">
   <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/quest-pixel-adventure-dark-mobile.svg">
-    <source media="(max-width: 640px)" srcset="assets/quest-pixel-adventure-light-mobile.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/quest-pixel-adventure-dark.svg">
-    <img src="assets/quest-pixel-adventure-light.svg" width="1200" alt="任务 04 / PixelAdventure2D-UE5 / Blueprints、PaperZD / 游戏模板">
+    <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/modern-project-pixel-adventure-dark-mobile.svg">
+    <source media="(max-width: 640px)" srcset="assets/modern-project-pixel-adventure-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/modern-project-pixel-adventure-dark.svg">
+    <img src="assets/modern-project-pixel-adventure-light.svg" width="1200" alt="PixelAdventure2D-UE5 / Unreal Engine、Blueprints、PaperZD / 游戏模板">
   </picture>
 </a>
 
@@ -78,19 +76,9 @@
 
 **用蓝图探索 2D 像素游戏。** UE 5.2 游戏模板，包含 16 个关卡与移动触控支持。[项目仓库 →](https://github.com/YspCoder/PixelAdventure2D-UE5)
 
-## 装备栏
+## 技术方向
 
-<img src="assets/label-inventory.svg" width="230" alt="TECH INVENTORY">
-
-<p>
-  <img src="assets/badge-go.svg" height="30" alt="Go">
-  <img src="assets/badge-python.svg" height="30" alt="Python">
-  <img src="assets/badge-typescript.svg" height="30" alt="TypeScript">
-  <img src="assets/badge-react-native.svg" height="30" alt="React Native">
-  <img src="assets/badge-kotlin.svg" height="30" alt="Kotlin">
-  <img src="assets/badge-unreal-engine.svg" height="30" alt="Unreal Engine">
-  <img src="assets/badge-mcp.svg" height="30" alt="MCP">
-</p>
+`Go` · `Python` · `TypeScript` · `React Native` · `Kotlin` · `Unreal Engine` · `MCP`
 
 - **构建**：Go SDK、API 集成与模型服务适配。
 - **自动化**：Python、浏览器操作与 Agent Skills。
@@ -98,7 +86,7 @@
 
 也在整理 [gemini-image-proxy](https://github.com/YspCoder/gemini-image-proxy) 与 [clawgo-skills](https://github.com/YspCoder/clawgo-skills)，让重复的工作更容易交给工具。
 
-## 存档数据
+## 开源足迹
 
 <picture>
   <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/stats-mobile-dark.svg">
@@ -113,8 +101,3 @@
   欢迎在项目里交流想法、提交 Issue，或一起完善工具。<br>
   <a href="https://github.com/YspCoder?tab=repositories"><strong>找到你感兴趣的项目 →</strong></a>
 </p>
-
-<picture>
-  <source media="(max-width: 640px)" srcset="assets/pixel-footer-mobile.svg">
-  <img src="assets/pixel-footer.svg" width="1200" alt="Keep building. Next quest awaits.">
-</picture>

@@ -8,7 +8,6 @@
     * { box-sizing: border-box; }
     body { margin: 0; background: #ffffff; }
     picture, img { display: block; width: 100%; }
-    img { image-rendering: pixelated; }
     .dark { display: none; }
     @media (prefers-color-scheme: dark) {
       body { background: #0d1117; }
@@ -19,12 +18,12 @@
 </head>
 <body>
   <picture class="light">
-    <source media="(max-width: 640px)" srcset="../assets/player-light-mobile.png">
-    <img src="../assets/player-light.png" alt="YspCoder player profile">
+    <source media="(max-width: 640px)" srcset="../assets/modern-banner-light-mobile.png">
+    <img src="../assets/modern-banner-light.png" alt="YspCoder modern portfolio">
   </picture>
   <picture class="dark">
-    <source media="(max-width: 640px)" srcset="../assets/player-dark-mobile.png">
-    <img src="../assets/player-dark.png" alt="YspCoder player profile">
+    <source media="(max-width: 640px)" srcset="../assets/modern-banner-dark-mobile.png">
+    <img src="../assets/modern-banner-dark.png" alt="YspCoder modern portfolio">
   </picture>
 </body>
 </html>
