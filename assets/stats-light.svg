@@ -1,21 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="196" viewBox="0 0 920 196" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="226" viewBox="0 0 920 226" role="img" aria-labelledby="title description">
   <title id="title">YspCoder 的 GitHub 公开统计</title>
   <desc id="description">公开仓库 37；非 Fork 仓库获星 34；加入 GitHub 2016。更新于 2026-10-06 · 上海时间</desc>
-  <rect width="920" height="196" fill="#ffffff"/>
-  <path d="M0 0.5H920M0 195.5H920" stroke="#e2e5e7"/>
+  <rect width="920" height="226" fill="#080b10"/>
+  <path d="M32 51H888M32 184H888" stroke="#2b3348"/>
+  <path d="M32 51h58" stroke="#bd80ff" stroke-width="2"/>
+  <path d="M855 51h33" stroke="#36bfff" stroke-width="2"/>
   <g font-family="Segoe UI, PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" style="letter-spacing:0">
-<path d="M306 25V137" stroke="#e2e5e7"/>
-  <text x="32" y="37" fill="#178b7c" font-size="12" font-weight="600">REPOSITORIES</text>
-  <text x="32" y="101" fill="#24272b" font-size="52" font-weight="600" style="font-variant-numeric:tabular-nums">37</text>
-  <text x="32" y="133" fill="#667078" font-size="16">公开仓库</text>
-<path d="M608 25V137" stroke="#e2e5e7"/>
-  <text x="334" y="37" fill="#c76b58" font-size="12" font-weight="600">STARS</text>
-  <text x="334" y="101" fill="#24272b" font-size="52" font-weight="600" style="font-variant-numeric:tabular-nums">34</text>
-  <text x="334" y="133" fill="#667078" font-size="16">非 Fork 仓库获星</text>
+  <text x="32" y="33" fill="#f5f7fc" font-size="15" font-weight="600">PUBLIC METRICS</text>
+  <text x="888" y="33" fill="#36bfff" font-size="12" text-anchor="end">github / YspCoder</text>
+<path d="M304 72V177" stroke="#2b3348"/>
+  <path d="M32 78h5" stroke="#36bfff" stroke-width="3"/>
+  <text x="45" y="84" fill="#36bfff" font-size="12" font-weight="600">REPOSITORIES</text>
+  <text x="32" y="149" fill="#f5f7fc" font-size="64" font-weight="700" style="font-variant-numeric:tabular-nums">37</text>
+  <text x="32" y="177" fill="#b1b9cb" font-size="16">公开仓库</text>
+<path d="M606 72V177" stroke="#2b3348"/>
+  <path d="M334 78h5" stroke="#bd80ff" stroke-width="3"/>
+  <text x="347" y="84" fill="#bd80ff" font-size="12" font-weight="600">STARS</text>
+  <text x="334" y="149" fill="#f5f7fc" font-size="64" font-weight="700" style="font-variant-numeric:tabular-nums">34</text>
+  <text x="334" y="177" fill="#b1b9cb" font-size="16">非 Fork 仓库获星</text>
 
-  <text x="636" y="37" fill="#178b7c" font-size="12" font-weight="600">SINCE</text>
-  <text x="636" y="101" fill="#24272b" font-size="52" font-weight="600" style="font-variant-numeric:tabular-nums">2016</text>
-  <text x="636" y="133" fill="#667078" font-size="16">加入 GitHub</text>
-  <text x="32" y="177" fill="#667078" font-size="12">更新于 2026-10-06 · 上海时间</text>
+  <path d="M636 78h5" stroke="#36bfff" stroke-width="3"/>
+  <text x="649" y="84" fill="#36bfff" font-size="12" font-weight="600">SINCE</text>
+  <text x="636" y="149" fill="#f5f7fc" font-size="64" font-weight="700" style="font-variant-numeric:tabular-nums">2016</text>
+  <text x="636" y="177" fill="#b1b9cb" font-size="16">加入 GitHub</text>
+  <text x="32" y="208" fill="#b1b9cb" font-size="12">更新于 2026-10-06 · 上海时间</text>
   </g>
 </svg>

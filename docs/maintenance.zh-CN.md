@@ -4,31 +4,31 @@
 
 ## 修改内容
 
-个人介绍、技术方向、项目链接和项目说明都在 `README.md` 中。GitHub Profile 支持 Markdown 与部分 HTML，但不运行网页脚本，也不支持自定义页面 CSS。
+项目链接、导航与无障碍描述在 `README.md` 中；封面、项目面板和技术方向的图文内容在 `scripts/render-cyber-profile.mjs` 中。GitHub Profile 支持 Markdown 与部分 HTML，但不运行网页脚本，也不支持自定义页面 CSS。
 
-当前主页采用简洁现代的作品集排版：个人封面、四个可点击项目、技术方向和公开统计。封面使用原始 GitHub 头像，常规字体与少量色彩点缀；桌面封面为 920 × 320，移动端为 600 × 352，分别适配明暗主题。
+当前主页采用赛博朋克开发者界面：黑底、霓虹紫、电光蓝，配合常规字体、细网格与连接图。桌面封面为 1200 × 380，移动端为 600 × 430；明暗主题均保持黑底。
 
-`scripts/render-modern-profile.mjs` 生成封面与项目卡片。说明文案保留在 README 中，图片内只呈现项目名、技术方向和项目状态。
+`scripts/render-cyber-profile.mjs` 生成封面、四个可点击项目面板和技术方向。项目名、用途、技术及状态放在同一面板中，README 保留完整替代文字和文档链接。项目面板桌面为 1200 × 172，移动端为 600 × 218；技术方向桌面为 1200 × 114，移动端为 600 × 192。
 
-直接打开 `design/banner.html` 可以预览封面，它跟随系统主题与窗口宽度切换版本。
+直接打开 `design/banner.html` 可以预览封面，它跟随窗口宽度切换桌面或移动端版本。
 
 ```sh
 # 生成封面与项目 SVG，无第三方依赖
-node scripts/render-modern-profile.mjs
+node scripts/render-cyber-profile.mjs
 
 # 同时导出 README 使用的 PNG；传入本机 sharp 模块入口的 file URL
-node scripts/render-modern-profile.mjs file:///absolute/path/to/sharp/dist/index.cjs
+node scripts/render-cyber-profile.mjs file:///absolute/path/to/sharp/dist/index.cjs
 ```
 
-PNG 导出使用 `sharp` 0.35.x；其模块入口以安装版本的 `package.json` 为准。修改封面后需要重新导出四张 PNG。
+PNG 导出使用 `sharp` 0.35.x；其模块入口以安装版本的 `package.json` 为准。修改封面后需要重新导出桌面和移动端两张 PNG。封面字体使用 Bahnschrift、Arial 和 Microsoft YaHei，导出机器需提供相应字体或兼容字体。
 
-历史像素方案的素材与生成脚本仍保留在仓库中，当前 README 不引用这些资源。
+历史方案的素材与生成脚本仍保留在仓库中，当前 README 不引用这些资源。
 
-README 的 `<picture>` 会根据访问者的主题与屏幕宽度选择封面、统计图片。文字介绍和项目列表使用 GitHub 原生排版。
+README 的 `<picture>` 根据屏幕宽度选择封面、项目面板和技术方向，并根据主题选择统计图片。导航、文档链接和章节标题使用 GitHub 原生排版。
 
 ## 更新统计
 
-`scripts/update-profile.mjs` 从 GitHub 公开 API 读取资料，生成明暗主题、桌面和移动端的简洁统计 `assets/stats-*.svg`。不需要安装第三方包，不读取私有仓库。支持 `GH_TOKEN` 或 `GITHUB_TOKEN`；工作流已注入 GitHub 自动提供的令牌，以减少未认证 API 限流。
+`scripts/update-profile.mjs` 从 GitHub 公开 API 读取资料，生成明暗主题、桌面和移动端的赛博风格统计 `assets/stats-*.svg`。桌面为 920 × 226，移动端为 600 × 376。不需要安装第三方包，不读取私有仓库。支持 `GH_TOKEN` 或 `GITHUB_TOKEN`；工作流已注入 GitHub 自动提供的令牌，以减少未认证 API 限流。
 
 ```sh
 node scripts/update-profile.mjs
@@ -42,11 +42,12 @@ node scripts/update-profile.mjs
 
 - `README.md`：主页内容。
 - `assets/avatar.png`：GitHub 头像快照。
-- `assets/modern-banner-*.svg` / `assets/modern-banner-*.png`：明暗主题与移动端封面。
-- `assets/modern-project-*.svg`：明暗主题与移动端项目卡片。
+- `assets/cyber-cover*.svg` / `assets/cyber-cover*.png`：桌面与移动端封面。
+- `assets/cyber-project-*.svg`：桌面与移动端项目面板。
+- `assets/cyber-stack*.svg`：技术方向。
 - `assets/stats-*.svg`：定期生成的公开数据。
 - `design/banner.html`：封面预览。
-- `scripts/render-modern-profile.mjs`：当前封面与项目卡片的生成源稿。
+- `scripts/render-cyber-profile.mjs`：当前视觉素材的生成源稿。
 - `scripts/update-profile.mjs`：统计更新脚本。
 - `.github/workflows/update-profile.yml`：每周更新工作流。
 

@@ -53,9 +53,9 @@ const updatedAt = new Intl.DateTimeFormat('sv-SE', {
   day: '2-digit',
 }).format(new Date());
 const metrics = [
-  { value: profile.public_repos, label: '公开仓库', code: 'REPOSITORIES', accent: 'teal' },
-  { value: stars, label: '非 Fork 仓库获星', code: 'STARS', accent: 'coral' },
-  { value: joinedYear, label: '加入 GitHub', code: 'SINCE', accent: 'teal' },
+  { value: profile.public_repos, label: '公开仓库', code: 'REPOSITORIES', accent: 'blue' },
+  { value: stars, label: '非 Fork 仓库获星', code: 'STARS', accent: 'purple' },
+  { value: joinedYear, label: '加入 GitHub', code: 'SINCE', accent: 'blue' },
 ];
 
 function escapeXml(value) {
@@ -66,34 +66,39 @@ function escapeXml(value) {
 
 function createSvg(theme, mobile) {
   const palette = theme === 'dark'
-    ? { background: '#17191c', border: '#36393d', primary: '#f2f3f4', muted: '#a4a9ad', teal: '#75c9bb', coral: '#e59a89' }
-    : { background: '#ffffff', border: '#e2e5e7', primary: '#24272b', muted: '#667078', teal: '#178b7c', coral: '#c76b58' };
+    ? { background: '#080b10', border: '#253045', primary: '#f5f7fc', muted: '#a6afc2', blue: '#36bfff', purple: '#bd80ff' }
+    : { background: '#080b10', border: '#2b3348', primary: '#f5f7fc', muted: '#b1b9cb', blue: '#36bfff', purple: '#bd80ff' };
   const width = mobile ? 600 : 920;
-  const height = mobile ? 346 : 196;
+  const height = mobile ? 376 : 226;
   const metricMarkup = metrics.map((metric, index) => {
     const x = mobile ? 32 : 32 + index * 302;
-    const y = mobile ? 69 + index * 92 : 101;
-    const labelX = mobile ? 210 : x;
-    const labelY = mobile ? y + 6 : 133;
+    const y = mobile ? 113 + index * 92 : 149;
+    const labelX = mobile ? 234 : x;
+    const labelY = mobile ? y - 2 : 177;
     const codeX = mobile ? labelX : x;
-    const codeY = mobile ? y - 21 : 37;
+    const codeY = mobile ? y - 29 : 84;
     const divider = mobile
-      ? (index < 2 ? `<path d="M32 ${y + 30}H568" stroke="${palette.border}"/>` : '')
-      : (index < 2 ? `<path d="M${x + 274} 25V137" stroke="${palette.border}"/>` : '');
-    const numberSize = Math.min(mobile ? 48 : 52, Math.floor((mobile ? 155 : 242) / (String(metric.value).length * 0.64)));
+      ? (index < 2 ? `<path d="M32 ${y + 21}H568" stroke="${palette.border}"/>` : '')
+      : (index < 2 ? `<path d="M${x + 272} 72V177" stroke="${palette.border}"/>` : '');
+    const numberSize = Math.min(mobile ? 54 : 64, Math.floor((mobile ? 174 : 242) / (String(metric.value).length * 0.64)));
     return `${divider}
-  <text x="${codeX}" y="${codeY}" fill="${palette[metric.accent]}" font-size="${mobile ? 16 : 12}" font-weight="600">${escapeXml(metric.code)}</text>
-  <text x="${x}" y="${y}" fill="${palette.primary}" font-size="${numberSize}" font-weight="600" style="font-variant-numeric:tabular-nums">${escapeXml(metric.value)}</text>
+  <path d="M${codeX} ${codeY - 6}h5" stroke="${palette[metric.accent]}" stroke-width="3"/>
+  <text x="${codeX + 13}" y="${codeY}" fill="${palette[metric.accent]}" font-size="${mobile ? 16 : 12}" font-weight="600">${escapeXml(metric.code)}</text>
+  <text x="${x}" y="${y}" fill="${palette.primary}" font-size="${numberSize}" font-weight="700" style="font-variant-numeric:tabular-nums">${escapeXml(metric.value)}</text>
   <text x="${labelX}" y="${labelY}" fill="${palette.muted}" font-size="${mobile ? 22 : 16}">${escapeXml(metric.label)}</text>`;
   }).join('\n');
   const timestamp = `更新于 ${updatedAt} · 上海时间`;
-  const footerY = height - 19;
+  const footerY = height - 18;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title description">
   <title id="title">${escapeXml(username)} 的 GitHub 公开统计</title>
   <desc id="description">${escapeXml(metrics.map(({ value, label }) => `${label} ${value}`).join('；'))}。${escapeXml(timestamp)}</desc>
   <rect width="${width}" height="${height}" fill="${palette.background}"/>
-  <path d="M0 0.5H${width}M0 ${height - 0.5}H${width}" stroke="${palette.border}"/>
+  <path d="M32 51H${width - 32}M32 ${height - 42}H${width - 32}" stroke="${palette.border}"/>
+  <path d="M32 51h58" stroke="${palette.purple}" stroke-width="2"/>
+  <path d="M${width - 65} 51h33" stroke="${palette.blue}" stroke-width="2"/>
   <g font-family="Segoe UI, PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" style="letter-spacing:0">
+  <text x="32" y="33" fill="${palette.primary}" font-size="${mobile ? 19 : 15}" font-weight="600">PUBLIC METRICS</text>
+  <text x="${width - 32}" y="33" fill="${palette.blue}" font-size="${mobile ? 16 : 12}" text-anchor="end">github / ${escapeXml(username)}</text>
 ${metricMarkup}
   <text x="32" y="${footerY}" fill="${palette.muted}" font-size="${mobile ? 16 : 12}">${escapeXml(timestamp)}</text>
   </g>
