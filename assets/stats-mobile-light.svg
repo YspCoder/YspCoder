@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="376" viewBox="0 0 600 376" role="img" aria-labelledby="title description">
   <title id="title">YspCoder 的 GitHub 公开统计</title>
-  <desc id="description">公开仓库 37；非 Fork 仓库获星 35；加入 GitHub 2016。更新于 2026-11-02 · 上海时间</desc>
+  <desc id="description">公开仓库 37；非 Fork 仓库获星 35；加入 GitHub 2016。更新于 2026-11-09 · 上海时间</desc>
   <rect width="600" height="376" fill="#080b10"/>
   <path d="M32 51H568M32 334H568" stroke="#2b3348"/>
   <path d="M32 51h58" stroke="#bd80ff" stroke-width="2"/>
@@ -23,6 +23,6 @@
   <text x="247" y="268" fill="#36bfff" font-size="16" font-weight="600">SINCE</text>
   <text x="32" y="297" fill="#f5f7fc" font-size="54" font-weight="700" style="font-variant-numeric:tabular-nums">2016</text>
   <text x="234" y="295" fill="#b1b9cb" font-size="22">加入 GitHub</text>
-  <text x="32" y="358" fill="#b1b9cb" font-size="16">更新于 2026-11-02 · 上海时间</text>
+  <text x="32" y="358" fill="#b1b9cb" font-size="16">更新于 2026-11-09 · 上海时间</text>
   </g>
 </svg>
